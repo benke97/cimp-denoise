@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cimp-denoise"
+version = "0.1.0"
+description = "Denoise STEM images by flow matching, steered by CMMP image and metadata embeddings"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "torch>=2.2", "torchvision", "numpy", "h5py", "tifffile", "pillow",
+    "rosettasciio",       # Gatan .dm3 / .dm4
+]
+
+[project.optional-dependencies]
+training = [
+    "scipy", "scikit-image", "matplotlib", "pandas", "tqdm", "lpips",
+    "series_alignment",   # local package: pip install -e ../series_alignment
+]
+
+[project.scripts]
+denoise = "cimp_denoise.cli:main"
+
+[tool.setuptools]
+packages = ["cimp_denoise"]

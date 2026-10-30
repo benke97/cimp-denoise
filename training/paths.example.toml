@@ -1,0 +1,26 @@
+# Local locations of the training data and weights. Nothing in the training
+# code hard-codes a path; everything is read from training/paths.toml (or the
+# file named by the CIMP_PATHS env var). Copy this file to training/paths.toml
+# and fill in your own locations; paths.toml is git-ignored.
+
+[data]
+# single-frame source index: one entry per acquisition, the HAADF frame CMMP was trained on
+source_h5   = '/path/to/CMMP_data_16bit_1frame.h5'
+# root of the raw Velox (.emd) archive the recorded paths point into
+raw_root    = '/path/to/raw_velox'
+# multi-frame stacks (training/build_stacks.py writes it)
+stacks_h5   = '/path/to/CIMP_stacks_v3.h5'
+
+[weights]
+# frozen CMMP encoder that supplies every style embedding
+cmmp        = '/path/to/cmmp_checkpoint.pth'
+
+[runs]
+root        = '/path/to/runs'
+
+[archive]
+# optional: if the raw archive moved or folders were renamed since the data files
+# recorded their paths, name the folder the recorded paths share with raw_root,
+# and any renames as [recorded, current] pairs
+# anchor      = 'raw_archive'
+# aliases     = [['old_folder', 'new_folder']]

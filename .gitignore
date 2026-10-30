@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.egg-info/
+runs/
+*.h5
+*.pt
+*.pth
+*.npy
+*.tif
+*.gif
+paths.local.toml
+training/paths.toml
+*.emd
+exp_for_denoiser/
